@@ -1,6 +1,7 @@
 class ChristmastreesController < ApplicationController
   def index
     @christmastrees = Christmastree.all
+    @user_christmastrees = current_user.christmastrees
   end
 
   def show
@@ -20,17 +21,12 @@ class ChristmastreesController < ApplicationController
     end
   end
 
-  # def edit
+  def destroy
+    @christmastree = Christmastree.find(params[:id])
+    @christmastree.destroy
+    redirect_to christmastree_path, status: :see_other
+  end
 
-  # end
-
-  # def update
-
-  # end
-
-  # def destroy
-
-  # end
 
   private
 

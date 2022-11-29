@@ -3,4 +3,6 @@
 <%= @user.username %>
 <% @user.bookings.each do |booking| %>
   <%= booking.christmastree.name  %>
-   <% end %>
+  <%= link_to "delete", christmastree_bookings_path(booking), data: { turbo_method: :delete } %>
+    <% end %>
+  <%# <%= link_to christmastree.destroy %>

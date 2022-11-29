@@ -1,0 +1,8 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<%= current_user.username %>
+<% @bookings.each do |booking| %>
+  <%= booking.christmastree.name  %>
+  <%#= link_to "delete", booking_path(booking), data: { turbo_method: :delete } %>
+  <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}%>
+    <% end %>
