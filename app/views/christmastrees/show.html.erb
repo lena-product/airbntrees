@@ -1,9 +1,69 @@
-<div class="container">
+<div class="container mt-5">
   <h1><%= @christmastree.name %></h1>
+<<<<<<< HEAD
+  <div class="row mt-5">
+
+
+  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <img
+      src="https://backroadramblers.com/wp-content/uploads/2021/11/national-foret-christmas-tree.jpg.webp"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Boat on Calm Water"
+    />
+
+    <img
+      src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Mountains in the Clouds"
+    />
+
+    <img
+      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Boat on Calm Water"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Waves at Sea"
+    />
+
+    <img
+      src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Yosemite National Park"
+    />
+    </div>
+  </div>
+=======
   <% @christmastree.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
+>>>>>>> master
   <p>Height: <%= @christmastree.height %></p>
   <p>Type: <%= @christmastree.plant_type %></p>
-  <%= link_to "Book this tree!", new_christmastree_booking_path(@christmastree) %>
+    <p>Owner: <%= @christmastree.user.username %></p>
+
+  <p> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias." </p>
+  <%#= link_to "Book this tree!", new_christmastree_booking_path(@christmastree) %>
+      <hr>
+
+      <h3>BOOK THIS TREE!</h3>
+        <%= simple_form_for [@christmastree, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :date, required: false, input_html: {class: "datepicker"} %>
+        <%= f.submit 'Book', class: "btn btn-default btn-primary" %>
+      <%end%>
+
   </div>
