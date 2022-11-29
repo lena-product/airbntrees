@@ -37,7 +37,7 @@ class ChristmastreesController < ApplicationController
   private
 
   def christmastree_params
-    params.required(:christmastree).permit(:height, :plant_type, :name, photos: [])
+    params.required(:christmastree).permit(:height, :plant_type, :name, :user_id, photos: [])
   end
 
 end
