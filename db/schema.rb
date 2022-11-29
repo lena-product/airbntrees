@@ -11,8 +11,23 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_28_143224) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.float "price"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
+    t.bigint "user_id", null: false
+    t.bigint "christmastree_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["christmastree_id"], name: "index_bookings_on_christmastree_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "christmastrees", force: :cascade do |t|
     t.integer "height"
@@ -35,4 +50,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_143224) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
+=======
+  add_foreign_key "bookings", "christmastrees"
+  add_foreign_key "bookings", "users"
+>>>>>>> 594f16a8fa6504db2033a48970d911041e4f0e97
 end
