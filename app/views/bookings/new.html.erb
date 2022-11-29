@@ -1,0 +1,25 @@
+<%# <div class="confirmation-box col-md-4">
+  <div class="listing-price">
+    <div class="form-group"> %>
+      <%# <h4><%= @christmastree.price %>
+      <%# <p>per day plus service fees</p><br> %>
+
+      <%= simple_form_for [@christmastree, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :date, required: false, input_html: {class: "datepicker"} %>
+        <%= f.button :submit %>
+      <%end%>
+
+        <%# <h5>Subtotal: <strong>$<%= @christmastree.price %>
+
+
+
+        <%# <br><br>
+        <p class="text-center" style="color: grey">You won't be charged yet</p>
+        <%# <p class="text-center" style="color: grey">-- Or --</p> %>
+
+        <%# <button class="btn btn-primary custom-link form-control"><%= link_to "Contact owner", conversations_path</button> %>
+      <%# <% end %>
+<%# #     </div>
+#   </div>
+# </div> %>
