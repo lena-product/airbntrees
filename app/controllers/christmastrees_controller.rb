@@ -5,6 +5,7 @@ class ChristmastreesController < ApplicationController
 
   def show
     @christmastree = Christmastree.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -13,6 +14,7 @@ class ChristmastreesController < ApplicationController
 
   def create
     @christmastree = Christmastree.new(christmastree_params)
+    @christmastree.user = current_user
     if @christmastree.save
       redirect_to christmastree_path(@christmastree)
     else
@@ -35,7 +37,7 @@ class ChristmastreesController < ApplicationController
   private
 
   def christmastree_params
-    params.required(:christmastree).permit(:height, :plant_type)
+    params.required(:christmastree).permit(:height, :plant_type, :name)
   end
 
 end
