@@ -2,4 +2,5 @@
   <h1><%= @christmastree.name %></h1>
   <p>Height: <%= @christmastree.height %></p>
   <p>Type: <%= @christmastree.plant_type %></p>
+  <%= link_to "Book this tree!", new_christmastree_booking_path(@christmastree) %>
   </div>
