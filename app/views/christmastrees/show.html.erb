@@ -1,5 +1,8 @@
 <div class="container">
   <h1><%= @christmastree.name %></h1>
+  <% @christmastree.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <p>Height: <%= @christmastree.height %></p>
   <p>Type: <%= @christmastree.plant_type %></p>
   <%= link_to "Book this tree!", new_christmastree_booking_path(@christmastree) %>
