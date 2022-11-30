@@ -1,6 +1,38 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.username %>
-<% @user.christmastrees.each do |tree| %>
-  <%= @user.christmastrees.height %>
-   <% end %>
+<div class="container">
+  <h2>Hi, <%= @user.username %>!</h2>
+  <div class="mt-5">
+  <h3>My trees</h3>
+
+
+  <% @user.christmastrees.each do |tree| %>
+  <div class="d-flex p-2">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= tree.name %></h5>
+
+      <a href="#" class="btn btn-primary">DELETE THIS TREE</a>
+    </div>
+       </div>
+     <% end %>
+
+  </div>
+</div>
+</div>
+
+
+  <h3>My Bookings</h3>
+
+
+
+<div class="container">
+  <% @user.bookings.each do |booking| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= booking.christmastree.name %></h5>
+      <p class="card-text">start date: <%= booking.start_date %> end date: <%= booking.end_date %></p>
+    </div>
+     <% end %>
+  </div>
+</div>
+  <%= link_to "back to christmas trees", christmastrees_path%>
+</div>

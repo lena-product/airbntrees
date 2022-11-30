@@ -1,8 +1,19 @@
-// Specific CSS for your home-page
 .banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
 }
 
 .banner h1 {
@@ -18,11 +29,4 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-.btn-flat {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: #670BFF;
-  transition: background 0.3s ease;
 }
