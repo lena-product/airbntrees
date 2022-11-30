@@ -1,10 +1,35 @@
-<div class=container mt-5>
+<div class="container mt-5">
+
+  <h3 Christmas trees available></h3>
+    <div class="container">
+      <div class="row justify-content-center" data-controller="map">
+        <div class="col-6">
+          <form class="d-flex my-5" id="form" data-action="submit->map#search">
+            <input type="text" id="address" class="form-control flex-grow-1 me-2" placeholder="Type an address" data-map-target="form">
+            <input type="submit" value="Search!" class="btn btn-success" >
+          </form>
+        </div>
+      </div>
+    </div>
+<br>
+<%# <div class="d-flex p-2 m-5">
   <% @christmastrees.each do |tree| %>
 
-<div class="card-product mt-5">
- <img src="https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2006176-847__1&recipeName=350" />
-      <p><%= link_to tree.name, christmastree_path(tree), class: "card-product-infos" %></p>
+<%# <div class="card-product m-2"> %>
+ <%# <img src="https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2006176-847__1&recipeName=350" /> %>
+      <%# <p><%= link_to tree.name, christmastree_path(tree), class: "card-product-infos" %>
 
-  </div>
-  <% end %>
+  <%# </div> %>
+  <%# <% end %>
+
+       <% @christmastrees.each do |tree| %>
+         <div class="d-inline-flex p-2 m-5">
+          <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+            <img class="card-img-top" src="https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2006176-847__1&recipeName=350" alt="Card image cap">
+            <div class="card-body">
+             <p><%= link_to tree.name, christmastree_path(tree), class: "card-title" %></p>
+            </div>
+          </div>
+         </div>
+        <% end %>
 </div>
