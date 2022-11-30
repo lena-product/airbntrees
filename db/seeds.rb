@@ -5,9 +5,24 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Christmastree.create(name: "Best Tree in the world", height: 120, plant_type: "Red Cedar")
-Christmastree.create(name: "Originally from Canada", height: 130, plant_type: "Balsam Fir")
-Christmastree.create(name: "Up high!", height: 180, plant_type: "Douglas Fir")
-Christmastree.create(name: "Waiting to be decorated :)", height: 200, plant_type: "Noble Fir")
-Christmastree.create(name: "Grown in own forest", height: 220, plant_type: "White Pine")
-Christmastree.create(name: "Best choice!", height: 250, plant_type: "Virginia Pine")
+user = User.create!(email: "abcd@gmail.com", username: "abcd", password: "TestABC", password_confirmation: "TestABC")
+puts user
+red = Christmastree.new(name: "Best Tree in the world", height: 120, plant_type: "Red Cedar")
+balsam = Christmastree.new(name: "Originally from Canada", height: 130, plant_type: "Balsam Fir")
+douglas = Christmastree.new(name: "Up high!", height: 180, plant_type: "Douglas Fir")
+noble = Christmastree.new(name: "Waiting to be decorated :)", height: 200, plant_type: "Noble Fir")
+white = Christmastree.new(name: "Grown in own forest", height: 220, plant_type: "White Pine")
+pine = Christmastree.new(name: "Best choice!", height: 250, plant_type: "Virginia Pine")
+red.user = user
+balsam.user = user
+douglas.user = user
+noble.user = user
+white.user = user
+pine.user = user
+
+red.save
+balsam.save
+douglas.save
+noble.save
+white.save
+pine.save
