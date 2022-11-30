@@ -21,6 +21,13 @@ def create
   end
 end
 
+def destroy
+
+  @booking = Booking.find(params[:id])
+  @booking.destroy
+  redirect_to users_show_path, status: :see_other
+end
+
 private
 
 def set_booking
@@ -33,6 +40,8 @@ def set_christmastree
 end
 
 def booking_params
-  params.require(:booking).permit(:price, :start_date, :end_date, :user_id)
+
+  params.require(:booking).permit(:user_id, :price, :start_date, :end_date)
+
 end
 end
