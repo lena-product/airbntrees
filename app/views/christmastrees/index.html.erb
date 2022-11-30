@@ -29,13 +29,19 @@
   <%# </div> %>
   <%# <% end %>
 
+
        <% @christmastrees.each do |tree| %>
          <div class="d-inline-flex p-2 m-5">
           <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2006176-847__1&recipeName=350" alt="Card image cap">
-            <div class="card-body">
-             <p><%= link_to tree.name, christmastree_path(tree), class: "card-title" %></p>
-            </div>
+            <%# <img class="card-img-top" src="https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2006176-847__1&recipeName=350" alt="Card image cap"> %>
+            <%= link_to christmastree_path(tree) do %>
+              <% tree.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, crop: :fill, class: "card-img-top", alt: "Card image cap"  %>
+              <% end %>
+              <div class="card-body">
+                <p><%= link_to tree.name, christmastree_path(tree), class: "card-title" %></p>
+              </div>
+            <% end %>
           </div>
          </div>
         <% end %>

@@ -37,9 +37,8 @@
   <div class="tree-info">
     <div class="w-50">
       <h1><%= @christmastree.name %></h1>
-     <p>Height: <%= @christmastree.height %></p>
-     <p>Type: <%= @christmastree.plant_type %></p>
-     <p>Owner: <%= @christmastree.user.username %></p>
+     <p><%= @christmastree.height %> cm high | Type: <%= @christmastree.plant_type %> | Owner: <%= @christmastree.user.username %>
+     </p>
         <hr>
      <p> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut  alias." </p>
         <%#= link_to "Book this tree!", new_christmastree_booking_path(@christmastree) %>
