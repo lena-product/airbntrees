@@ -30,14 +30,16 @@ class ChristmastreesController < ApplicationController
 
   # end
 
-  # def destroy
-
-  # end
+  def destroy
+    @christmastree = Christmastree.find(params[:id])
+    @christmastree.destroy
+    redirect_to users_show_path, status: :see_other
+  end
 
   private
 
   def christmastree_params
-    params.required(:christmastree).permit(:height, :plant_type, :name, photos: [])
+    params.require(:christmastree).permit(:user_id, :height, :plant_type, :name, photos: [])
   end
 
 end

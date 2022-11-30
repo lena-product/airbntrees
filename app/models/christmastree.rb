@@ -1,6 +1,6 @@
 class Christmastree < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   validates :name, presence: true
   validates :height, presence: true
   validates :plant_type, presence: true
