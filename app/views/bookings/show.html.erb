@@ -1,9 +1,15 @@
-<div class="container-listing">
+
+<div class="container">
+  <div class="container-listing">
   <br>
-  <h2><strong>Congratulations, your booking has been confirmed!</strong></h2><br>
-  <h3><strong>Your order details</strong></h3><br>
+  <h3><strong>Congratulations, your booking has been confirmed!</strong></h4><br>
+  <h4><strong>Your order details</strong></h3><br>
+    <h4>Tree name: <strong><%= @booking.christmastree.name %></strong></h4>
+<br>
 
-  <strong>Start Date: <%= @booking.start_date %></strong> | <strong>End Date: <%= @booking.end_date %></strong>
+Start Date: <%= @booking.start_date %> | End Date: <%= @booking.end_date %>
 
-  <h4><strong><%= @booking.christmastree.name %></strong></h4>
+  </div>
+  <br>
+   <h4><%= link_to "back to trees", christmastrees_path, class: "btn btn-success" %> </h4>
 </div>
