@@ -1,6 +1,12 @@
 class ChristmastreesController < ApplicationController
   def index
     @christmastrees = Christmastree.all
+    @markers = @christmastrees.geocoded.map do |tree|
+      {
+        lat: tree.latitude,
+        lng: tree.longitude
+      }
+    end
   end
 
   def show
