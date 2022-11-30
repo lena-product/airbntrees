@@ -1,32 +1,3 @@
-<div class="container mt-5" >
-<div class="row">
-  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-    <img
-      src="https://secure.img1-cg.wfcdn.com/im/51331961/resize-h310-w310%5Ecompr-r85/2176/217614186/36%27%27+Lighted+Artificial+Fir+Christmas+Tree.jpg"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Boat on Calm Water"
-    />
-
-  </div>
-
-  <div class="col-lg-4 mb-4 mb-lg-0">
-    <img
-      src="https://secure.img1-cg.wfcdn.com/im/97036173/resize-h310-w310%5Ecompr-r85/2222/222278258/Artificial+Fir+Christmas+Tree.jpg"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Mountains in the Clouds"
-    />
-
-  </div>
-
-  <div class="col-lg-4 mb-4 mb-lg-0">
-    <img
-      src="https://secure.img1-cg.wfcdn.com/im/19231590/resize-h310-w310%5Ecompr-r85/3909/39092338/Natural+Alpine+72%27%27+Artificial+Pine+Christmas+Tree.jpg"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Waves at Sea"
-    />
-
-  </div>
-</div>
 <%#
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-controller="carousel">
   <div class="carousel-inner">
@@ -50,17 +21,27 @@
   </a>
 </div> %>
 
+
+
+<div class="container mt-5" >
+  <div class="row">
+  <% @christmastree.photos.each do |photo| %>
+    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "w-100 shadow-1-strong rounded mb-4"  %>
+    </div>
+    <% end %>
+  </div>
+
+
+
   <div class="tree-info">
     <div class="w-50">
       <h1><%= @christmastree.name %></h1>
-      <% @christmastree.photos.each do |photo| %>
-         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-       <% end %>
      <p>Height: <%= @christmastree.height %></p>
      <p>Type: <%= @christmastree.plant_type %></p>
      <p>Owner: <%= @christmastree.user.username %></p>
         <hr>
-     <p> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias." </p>
+     <p> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut quod vitae nisi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veritatis rerum obcaecati. Aliquid id at, sit expedita magni dolores facere placeat perferendis! Totam ratione nulla ut  alias." </p>
         <%#= link_to "Book this tree!", new_christmastree_booking_path(@christmastree) %>
     </div>
     <div>
