@@ -33,6 +33,6 @@ def set_christmastree
 end
 
 def booking_params
-  params[:booking].permit(:price, :start_date, :end_date)
+  params.require(:booking).permit(:price, :start_date, :end_date, :user_id)
 end
 end
