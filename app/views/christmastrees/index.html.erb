@@ -30,7 +30,11 @@
                 <img class="card-img-top" src="https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=2006176-847__1&recipeName=350" alt="Card image cap">
             <% end %>
                 <div class="card-body">
-                  <p><%= link_to tree.name, christmastree_path(tree), class: "card-title" %></p>
+                  <p class="card-title"><%= tree.name %></p>
+                  <div class="d-flex justify-content-between">
+                    <p><%= tree.address %></p>
+                    <p><%= tree.price %>€ per day</p>
+                  </div>
                 </div>
             <% end %>
           </div>

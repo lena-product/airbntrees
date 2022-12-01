@@ -10,8 +10,12 @@
               <div class="card mb-2" style="width: 18rem;">
                  <div class="card-body">
                  <h5 class="card-title"><%= tree.name %></h5>
-                    <%= link_to "delete", christmastree_path(tree), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-success"%>
-                      <%= link_to "edit", edit_christmastree_path(tree), class:"btn btn-success"%>
+                    <%= link_to christmastree_path(tree), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %>
+                      <i class="fa-solid fa-trash-can"></i>
+                    <% end %>
+                    <%= link_to edit_christmastree_path(tree) do %>
+                      <i class="fa-solid fa-pen"></i>
+                    <% end %>
                  </div>
               </div>
               <% end %>
@@ -31,7 +35,9 @@
                <% else %>
                <p> Your booking has been approved!</p>
                <% end %>
-              <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-success"%>
+              <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %>
+                <i class="fa-solid fa-trash-can"></i>
+              <% end %>
               </div>
             </div>
                <% end %>
@@ -46,15 +52,21 @@
               <h5 class="card-title"><%= booking.user.username %> has booked your tree '<%= booking.christmastree.name %>'</h5>
               <p class="card-text"> <%= booking.start_date.strftime('%A %d %B') %> to <%= booking.end_date.strftime('%A %d %B') %></p>
               <% if booking.status.nil? %>
-                  <%= button_to "Accept", approve_booking_path(booking), method: :post %>
-                  <%= button_to "Decline", decline_booking_path(booking), method: :post %>
-                  <% elsif booking.status == "approved" %>
-                  <p> You have approved <%= booking.user.username %> request</p>
-                  <% elsif booking.status == "declined" %>
-                    <p> You have declined <%= booking.user.username %> request</p>
+                  <%= button_to approve_booking_path(booking), method: :post, class: "button" do %>
+                    <i class="fa-solid fa-check"></i>
                   <% end %>
+                  <%= button_to "Decline", decline_booking_path(booking), method: :post, class: "button" do  %>
+                    <i class="fa-solid fa-xmark"></i>
+                  <% end %>
+              <% elsif booking.status == "approved" %>
+                <p> You have approved <%= booking.user.username %> request</p>
+              <% elsif booking.status == "declined" %>
+                <p> You have declined <%= booking.user.username %> request</p>
+              <% end %>
 
-                  <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-success"%>
+              <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %>
+                <i class="fa-solid fa-trash-can"></i>
+              <% end %>
             </div>
           </div>
           <% end %>
