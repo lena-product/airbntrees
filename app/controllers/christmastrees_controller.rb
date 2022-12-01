@@ -29,13 +29,19 @@ class ChristmastreesController < ApplicationController
     end
   end
 
-  # def edit
 
-  # end
+  def edit
+    @christmastree = Christmastree.find(params[:id])
+  end
 
-  # def update
-
-  # end
+  def update
+    @christmastree = Christmastree.find(params[:id])
+    if @christmastree.update(christmastree_params)
+      redirect_to christmastree_path(@christmastree)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   def destroy
     @christmastree = Christmastree.find(params[:id])
@@ -46,9 +52,7 @@ class ChristmastreesController < ApplicationController
   private
 
   def christmastree_params
-
-    params.require(:christmastree).permit(:height, :plant_type, :name, :user_id, :address, photos: [])
-
+    params.require(:christmastree).permit(:description, :price, :height, :plant_type, :name, :user_id, :address, photos: [])
   end
 
 end
