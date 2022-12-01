@@ -55,7 +55,7 @@
                   <%= button_to approve_booking_path(booking), method: :post, class: "button" do %>
                     <i class="fa-solid fa-check"></i>
                   <% end %>
-                  <%= button_to "Decline", decline_booking_path(booking), method: :post, class: "button" do  %>
+                  <%= button_to decline_booking_path(booking), method: :post, class: "button" do  %>
                     <i class="fa-solid fa-xmark"></i>
                   <% end %>
               <% elsif booking.status == "approved" %>
