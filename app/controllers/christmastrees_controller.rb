@@ -1,6 +1,13 @@
 class ChristmastreesController < ApplicationController
   def index
     @christmastrees = Christmastree.all
+    @markers = @christmastrees.geocoded.map do |tree|
+      {
+        lat: tree.latitude,
+        lng: tree.longitude,
+        image_url: helpers.asset_url("christmas_tree_icon.png")
+      }
+    end
   end
 
   def show
@@ -40,7 +47,7 @@ class ChristmastreesController < ApplicationController
 
   def christmastree_params
 
-    params.require(:christmastree).permit(:height, :plant_type, :name, :user_id, photos: [])
+    params.require(:christmastree).permit(:height, :plant_type, :name, :user_id, :address, photos: [])
 
   end
 
