@@ -46,6 +46,13 @@ before_action :set_christmastree, only: [ :new, :create ]
     end
   end
 
+# def num_of_days
+#   @booking = Booking.find(params[:id])
+#   end_date = params[:end_date].value
+#   start_date = params[:start_date].value
+#   (@booking.start_date..@booking.end_date).count
+# end
+
 private
 
   def set_booking

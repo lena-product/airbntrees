@@ -17,6 +17,8 @@ $info:       $yellow;
 $danger:     $red;
 $warning:    $red;
 $black:    #000 !default;
+$white:     rgb(255, 255, 255) !default;
+
 
 // Buttons & inputs' radius
 $border-radius:    2px;
@@ -27,3 +29,4 @@ $border-radius-sm: 2px;
 
 $link-color:                              $black !default;
 $link-decoration:                         none !default;
+$body-bg:                 $white;
