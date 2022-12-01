@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_150957) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_122743) do
->>>>>>> 7798dfbe4a5c5b90d85e37a479d9200313f1f2ce
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_131825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_122743) do
     t.bigint "christmastree_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approval", default: false
     t.index ["christmastree_id"], name: "index_bookings_on_christmastree_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

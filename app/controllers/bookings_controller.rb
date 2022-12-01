@@ -22,17 +22,29 @@ before_action :set_christmastree, only: [ :new, :create ]
   end
 
   def destroy
+
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to booking_path, status: :see_other
+    redirect_to users_show_path, status: :see_other
   end
 
-def destroy
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "approved")
+    if @booking.status == "approved"
+      @booking.update(approval: true)
+      redirect_to user_path(@booking.christmastree.user)
+    end
+  end
 
-  @booking = Booking.find(params[:id])
-  @booking.destroy
-  redirect_to users_show_path, status: :see_other
-end
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "declined")
+    if @booking.status == "declined"
+      @booking.update(approval: false)
+      redirect_to user_path(@booking.christmastree.user)
+    end
+  end
 
 private
 
@@ -46,8 +58,6 @@ private
   end
 
 def booking_params
-
   params.require(:booking).permit(:user_id, :price, :start_date, :end_date)
-
 end
 end
