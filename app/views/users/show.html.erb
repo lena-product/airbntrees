@@ -1,14 +1,50 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.username %>
-<% @user.bookings.each do |booking| %>
-  <%= booking.christmastree.name  %>
-  <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
-    <% end %>
+<div class="container mt-5">
+  <h2>Hi, <%= @user.username %>!</h2>
+  <hr>
+    <div class="container">
+      <div class="row">
 
-<% #@user_christmastrees.each do |tree| %>
-      <p><%#= link_to tree.name, christmastree_path(tree) %></p>
-       <%#= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
-      <%#= link_to "delete", christmastree_path(tree), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
-  <% end %>
-  <%# <%= link_to christmastree.destroy %>
+        <div class="col-sm">
+          <h3>My trees</h3>
+         <% @user.christmastrees.each do |tree| %>
+              <div class="card mb-2" style="width: 18rem;">
+                 <div class="card-body">
+                 <h5 class="card-title"><%= tree.name %></h5>
+                    <%= link_to "delete", christmastree_path(tree), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-success"%>
+                 </div>
+              </div>
+              <% end %>
+           </div>
+
+        <div class="col-sm">
+          <h3>My bookings</h3>
+        <% @user.bookings.each do |booking| %>
+          <div class="card mb-2" style="width: 18rem;">
+             <div class="card-body">
+               <h5 class="card-title"><%= booking.christmastree.name %></h5>
+               <p class="card-text"> <%= booking.start_date %> to <%= booking.end_date %></p>
+              <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-success"%>
+              </div>
+            </div>
+               <% end %>
+          </div>
+
+        <div class="col-sm">
+          <h3>My booking requests</h3>
+          <% @user.christmastrees.each do |tree| %>
+          <% tree.bookings.each do |booking| %>
+          <div class="card mb-2" style="width: 18rem;">
+             <div class="card-body">
+              <h5 class="card-title"><%= booking.user.username %> has booked your tree '<%= booking.christmastree.name %>'</h5>
+              <p class="card-text"> <%= booking.start_date %> to <%= booking.end_date %></p>
+                  <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class:"btn btn-success"%>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+<hr>
+  <%= link_to "back to christmas trees", christmastrees_path%>
+</div>

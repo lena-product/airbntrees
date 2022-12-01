@@ -3,6 +3,8 @@
   <head>
     <title>Airbntrees</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,11 +13,13 @@
   </head>
 
   <body>
-  <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
+  <div class="wrapper">
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <%= yield %>
-    <% if user_signed_in? %>
-      <h2>Hi <%= current_user.email %></h2>
-    <% end %>
+    <div>
+      <%= render "shared/footer" %>
+    </div>
+  </div>
   </body>
 </html>

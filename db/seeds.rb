@@ -5,11 +5,24 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.create(email: "test@test.com", password: "test@test.com")
+user = User.create!(email: "abcde@gmail.com", username: "abcde", password: "TestABC", password_confirmation: "TestABC")
+puts user
+red = Christmastree.new(name: "Best Tree in the world", height: 120, plant_type: "Red Cedar", address: "Berlin")
+balsam = Christmastree.new(name: "Originally from Canada", height: 130, plant_type: "Balsam Fir", address: "Amsterdam")
+douglas = Christmastree.new(name: "Up high!", height: 180, plant_type: "Douglas Fir", address: "London")
+noble = Christmastree.new(name: "Waiting to be decorated :)", height: 200, plant_type: "Noble Fir", address: "Paris")
+white = Christmastree.new(name: "Grown in own forest", height: 220, plant_type: "White Pine", address: "Madrid")
+pine = Christmastree.new(name: "Best choice!", height: 250, plant_type: "Virginia Pine", address: "Lagos, Portugal")
+red.user = user
+balsam.user = user
+douglas.user = user
+noble.user = user
+white.user = user
+pine.user = user
 
-Christmastree.create(name: "Best Tree in the world", height: 120, plant_type: "Red Cedar", user: User.first)
-Christmastree.create(name: "Originally from Canada", height: 130, plant_type: "Balsam Fir", user: User.first)
-Christmastree.create(name: "Up high!", height: 180, plant_type: "Douglas Fir", user: User.first)
-Christmastree.create(name: "Waiting to be decorated :)", height: 200, plant_type: "Noble Fir", user: User.first)
-Christmastree.create(name: "Grown in own forest", height: 220, plant_type: "White Pine", user: User.first)
-Christmastree.create(name: "Best choice!", height: 250, plant_type: "Virginia Pine", user: User.first)
+red.save
+balsam.save
+douglas.save
+noble.save
+white.save
+pine.save
