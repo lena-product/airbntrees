@@ -25,13 +25,12 @@
 
 <div class="container mt-5" >
   <div class="row">
-  <% @christmastree.photos.each do |photo| %>
-    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "w-100 shadow-1-strong rounded mb-4"  %>
-    </div>
+    <% @christmastree.photos.each do |photo| %>
+      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "w-100 shadow-1-strong rounded mb-4"  %>
+      </div>
     <% end %>
   </div>
-
 
 
   <div class="tree-info">
