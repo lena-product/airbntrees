@@ -14,11 +14,15 @@
 
   <body>
   <div class="wrapper">
-    <%= render "shared/navbar" %>
+    <% if params[:controller] != 'pages' && params[:action] != 'home' %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
     <div>
-      <%= render "shared/footer" %>
+      <% if params[:controller] != 'pages' && params[:action] != 'home' %>
+        <%= render "shared/footer" %>
+      <% end %>
     </div>
   </div>
   </body>
