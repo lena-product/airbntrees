@@ -29,14 +29,6 @@ class ChristmastreesController < ApplicationController
     end
   end
 
-  # def edit
-
-  # end
-
-  # def update
-
-  # end
-
   def destroy
     @christmastree = Christmastree.find(params[:id])
     @christmastree.destroy

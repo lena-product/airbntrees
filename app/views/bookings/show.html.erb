@@ -2,7 +2,9 @@
 <div class="container">
   <div class="container-listing">
   <br>
-  <h4>Congratulations, you just booked <strong><%= @booking.christmastree.name %></strong> from <%= @booking.christmastree.user.username %><strong> starting <%= @booking.start_date %> until <%= @booking.end_date %>!</h4><br>
+  <h4>Congratulations, for your booking request, nice choice! Now just wait for <%= @booking.christmastree.user.username %> to accept or decline your request, it shouldn't take too long!</h4>
+  <h4><strong>Reminder of your request : </strong></h4>
+  <h4><strong><%= @booking.christmastree.name %></strong> from <%= @booking.christmastree.user.username %><strong> starting <%= @booking.start_date %> until <%= @booking.end_date %>!</h4><br>
 
 
   </div>
