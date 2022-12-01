@@ -2,31 +2,49 @@ class BookingsController < ApplicationController
 before_action :set_booking, only: [ :show ]
 before_action :set_christmastree, only: [ :new, :create ]
 
-def index
-  @bookings = current_user.bookings
-end
-
-def new
-  @booking = Booking.new
-end
-
-def create
-  @booking = Booking.new(booking_params)
-  @booking.user = current_user
-  @booking.christmastree = Christmastree.find(params[:christmastree_id])
-  if @booking.save
-    redirect_to booking_path(@booking)
-  else
-    redirect_to christmastree_path(@christmastree)
+  def index
+    @bookings = current_user.bookings
   end
-end
 
-def destroy
+  def new
+    @booking = Booking.new
+  end
 
-  @booking = Booking.find(params[:id])
-  @booking.destroy
-  redirect_to users_show_path, status: :see_other
-end
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.christmastree = Christmastree.find(params[:christmastree_id])
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      redirect_to christmastree_path(@christmastree)
+    end
+  end
+
+  def destroy
+
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to users_show_path, status: :see_other
+  end
+
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "approved")
+    if @booking.status == "approved"
+      @booking.update(approval: true)
+      redirect_to user_path(@booking.christmastree.user)
+    end
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "declined")
+    if @booking.status == "declined"
+      @booking.update(approval: false)
+      redirect_to user_path(@booking.christmastree.user)
+    end
+  end
 
 # def num_of_days
 #   @booking = Booking.find(params[:id])
@@ -37,18 +55,16 @@ end
 
 private
 
-def set_booking
-  @booking = Booking.find(params[:id])
-end
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
-def set_christmastree
+  def set_christmastree
 
-  @christmastree = Christmastree.find(params[:christmastree_id])
-end
+    @christmastree = Christmastree.find(params[:christmastree_id])
+  end
 
 def booking_params
-
   params.require(:booking).permit(:user_id, :price, :start_date, :end_date)
-
 end
 end
