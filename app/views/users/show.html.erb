@@ -3,6 +3,12 @@
 <%= @user.username %>
 <% @user.bookings.each do |booking| %>
   <%= booking.christmastree.name  %>
-  <%= link_to "delete", christmastree_bookings_path(booking), data: { turbo_method: :delete } %>
+  <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
     <% end %>
+
+<% #@user_christmastrees.each do |tree| %>
+      <p><%#= link_to tree.name, christmastree_path(tree) %></p>
+       <%#= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+      <%#= link_to "delete", christmastree_path(tree), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+  <% end %>
   <%# <%= link_to christmastree.destroy %>

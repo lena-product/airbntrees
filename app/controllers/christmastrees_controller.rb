@@ -1,7 +1,6 @@
 class ChristmastreesController < ApplicationController
   def index
     @christmastrees = Christmastree.all
-    @user_christmastrees = current_user.christmastrees
   end
 
   def show
