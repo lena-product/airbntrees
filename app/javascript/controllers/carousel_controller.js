@@ -1,8 +1,14 @@
-import { Controller } from "@hotwired/stimulus"
+const slidesContainer = document.getElementById("slides-container");
+const slide = document.querySelector(".slide");
+const prevButton = document.getElementById("slide-arrow-prev");
+const nextButton = document.getElementById("slide-arrow-next");
 
-export default class extends Controller {
+nextButton.addEventListener("click", () => {
+  const slideWidth = slide.clientWidth;
+  slidesContainer.scrollLeft += slideWidth;
+});
 
-  connect() {
-    console.log("Hello from our first Stimulus controller")
-  }
-}
+prevButton.addEventListener("click", () => {
+  const slideWidth = slide.clientWidth;
+  slidesContainer.scrollLeft -= slideWidth;
+});

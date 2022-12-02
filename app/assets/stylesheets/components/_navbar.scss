@@ -39,3 +39,11 @@
 .nav-link a:hover {
   color: white;
 }
+
+.navbar .nav-link{
+  color: lightgray;
+  opacity: 0.5;
+}
+.navbar .nav-link a:hover {
+  opacity: 1;
+}
