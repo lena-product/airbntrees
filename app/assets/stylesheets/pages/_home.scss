@@ -7,16 +7,16 @@
 
 .banner h1 {
   margin: 0;
-  color: $red;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-  font-size: 56px;
+  color: rgb(146, 7, 7);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  font-size: 65px;
   font-weight: bold;
   padding: 30px 0px;
   // border: 3px $red;
 }
 
 .banner p {
-  font-size: 24px;
+  font-size: 30px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   padding-bottom: 15px;
