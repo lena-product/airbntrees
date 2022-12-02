@@ -12,8 +12,7 @@
   height: 50px;
   padding: 0px 50px;
   z-index: 1100;
-  border-bottom: 1px solid transparent;
-  border-color: lightgray;
+
 
 }
 
@@ -31,4 +30,12 @@
 
 .navbar h4 {
   color: $red;
+}
+
+.navbar .nav-link{
+  color: lightgray;
+  opacity: 0.5;
+}
+.navbar .nav-link a:hover {
+  opacity: 1;
 }
