@@ -21,7 +21,7 @@
 
        <% @christmastrees.each do |tree| %>
          <div class="d-inline-flex p-2 m-5">
-          <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+          <div class="card" style="width: 18rem;">
 
             <%= link_to christmastree_path(tree) do %>
             <% if tree.photos.attached? %>

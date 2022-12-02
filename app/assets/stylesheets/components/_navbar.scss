@@ -12,7 +12,10 @@
   height: 50px;
   padding: 0px 50px;
   z-index: 1100;
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 }
 
@@ -30,6 +33,15 @@
 
 .navbar h4 {
   color: $red;
+  font-family: $headers-font;
+}
+
+.nav-link {
+  color: lightgray;
+}
+
+.nav-link a:hover {
+  color: white;
 }
 
 .navbar .nav-link{
