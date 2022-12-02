@@ -12,10 +12,16 @@
   align-items: center;
 }
 
+.card {
+  border-radius: 15px;
+  border: 0px;
+}
+
 .card-product img {
   height: 100%;
   width: 120px;
   object-fit: cover;
+  border-radius: 15px;
 }
 
 .card-product h2 {
@@ -38,4 +44,11 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-img-top {
+  height: 30vh;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px 15px 0px 0px;
 }
