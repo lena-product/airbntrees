@@ -13,10 +13,11 @@
   </head>
 
   <body>
-  <div class="wrapper">
+
     <% if params[:controller] != 'pages' && params[:action] != 'home' %>
       <%= render "shared/navbar" %>
     <% end %>
+      <div class="wrapper">
     <%= render "shared/flashes" %>
     <%= yield %>
     <div>
