@@ -18,3 +18,6 @@ application.register("map", MapController)
 
 import PriceController from "./price_controller"
 application.register("price", PriceController)
+
+import SnowController from "./snow_controller"
+application.register("snow", SnowController)
