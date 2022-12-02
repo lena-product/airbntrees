@@ -10,13 +10,13 @@ $body-bg:                 $beige;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
+$body-color: rgb(36, 14, 4) ;
 $primary:    $blue;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
 $warning:    $red;
-$black:    #000 !default;
+$black:    rgb(36, 14, 4) !default;
 $white:     rgb(255, 255, 255) !default;
 
 
@@ -27,6 +27,6 @@ $border-radius-sm: 2px;
 
 // Override other variables below!
 
-$link-color:                              $black !default;
+$link-color:                               rgb(36, 14, 4) !default;
 $link-decoration:                         none !default;
 $body-bg:                 $white;
